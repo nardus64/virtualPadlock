@@ -1,0 +1,100 @@
+"use  strict";
+var x = document.getElementById("demo");
+var maplon = " ";
+var maplat = " ";
+
+/*function showPosition(position) {
+	var latlon = position.coords.latitude + "," + position.coords.longitude;
+	document.getElementById("lextxtarea").innerHTML = latlon;
+    x.innerHTML = "Latitude: " + position.coords.latitude + 
+    "<br>Longitude: " + position.coords.longitude;
+
+    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=16&size=400x150&sensor=false";
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+}
+*/
+function poparray1(){
+    var listArry = [];  
+    var myresult = " ";
+    var loclan = "0";
+    var loclat = "0";
+    //get the current location or display all the graffiti if unable to getthe location
+    
+    getLocation();
+}
+	
+function listLocation()
+{
+	document.getElementById("lextxtarea").innerHTML = "testlistlocation";
+}
+function nameLocation()
+{
+	document.getElementById("lextxtarea").innerHTML = "test lextextarea";
+}
+
+function getLocation(txtElement) {
+    var x = document.getElementById("demo1");
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        x.innerHTML = "Geolocation not marked, not supported by this browser.";
+
+    }
+}
+
+function showPosition(position) {
+    var x = document.getElementById("demo1");
+    var y = document.getElementById("b1");
+    maplon = position.coords.longitude;
+    maplat = position.coords.latitude ;
+    
+    document.getElementById("graflong").value = maplon;
+    document.getElementById("graflat").value = maplat;
+    if(maplat !== ' ' && maplon !== ' ') {
+    document.getElementsByName("markLo")[0].setAttribute("disabled","true");
+    document.getElementsByName("markLo")[0].setAttribute("hidden","true");}
+
+    var latlon = position.coords.latitude + "," + position.coords.longitude;
+
+    /* removed the map display - google do not want to share this in an easy way anymore.
+    var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+    +latlon+"&zoom=16&size=400x150&sensor=false";
+    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";*/
+
+/*    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";*/
+    x.innerHTML = " Location marked, continue to List Bridges near you.";
+    document.getElementById("b3").removeAttribute("disabled");
+    document.getElementById("b2").removeAttribute("disabled");
+
+
+    /* test
+
+    var mapCanvas = document.getElementById("map");
+    var mapOptions = {
+        center: new google.maps.LatLng(maplat, maplon), zoom: 10
+        };
+    var map = new google.maps.Map(mapCanvas, mapOptions);
+
+    */
+
+
+
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}

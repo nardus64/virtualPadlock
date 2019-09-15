@@ -1,0 +1,56 @@
+>?php
+ session_start();
+ if (isset($_POST['ContactButton']))
+{
+$url= 'https://www.google.com/recaptcha/api/siteverify';
+$privatekey="6LcMQ0gUAAAAAC9wjTZLqbdTAQDmc9dvchGHC-BN";
+$response=file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
+$data = json_decode(response);
+if(issser($data->success) AND $data->success==true){
+  echo "successfull";
+  header('Location: recaptcha.php?CaptchaPass=True');
+}
+else {
+  header('Location: recaptcha.php?CaptchaFail=True'); 
+}
+}
+
+//URL: https://www.google.com/recaptcha/api/siteverify
+ if(isset($POST['Login]))
+$response=file_get_contents("");
+}
+
+?>
+
+<html>
+  <head>
+    <title>reCAPTCHA demo: Simple page</title>
+
+  <script type="text/javascript">
+  var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+          'sitekey' : "6LcMQ0gUAAAAAE68i8N9VRGeS3kz3FgPtfYT0UAX"
+        });
+      };
+        var onloadCallback = function() {
+        grecaptcha.getResponse('html_element', {
+          'sitekey' : "6LcMQ0gUAAAAAE68i8N9VRGeS3kz3FgPtfYT0UAX"
+        });
+      };
+    </script>
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>    
+  </head>
+  <body>
+    <form action="recap.php" method="POST"  onSubmit="window.location.reload()" id="form1" name="gymmy">
+      <div id="html_element"></div>
+      <br/>
+      <div class="g-recaptcha" data-sitekey="6LcMQ0gUAAAAAE68i8N9VRGeS3kz3FgPtfYT0UAX"></div>
+      <input type="submit" value="Submit">
+    </form>
+
+</script>
+    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+        async defer>
+    </script>
+  </body>
+</html>

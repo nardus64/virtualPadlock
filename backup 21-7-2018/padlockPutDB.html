@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html  lang="en">
+<meta charset="utf-8"> 
+<title>Love Lock</title>
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<script type="text/javascript" src="grafittiDB.js"></script>
+
+<head>
+
+<style>
+body {background-color: white;}
+textarea {font-size: 35px;}
+h1 {font-size: 48px;}
+
+#form2{border-style:solid;}
+#form1{border-style:solid;}
+#name1{border-style:groove;}
+
+</style>
+
+<div class="w3-container w3-panel w3-border-left">
+  <title>Add padlock to the bridge</title>
+  <script src='https://www.google.com/recaptcha/api.js'></script> 
+</head>
+
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">    
+
+<body>
+<script>
+var maplat  = " ";
+var maplon = " ";
+</script>
+
+<center>
+<h1 class="w3-jumbo w3-teal"> Padlock </h1>
+<p id="demo"class="w3-small" >Buy a virtual padlock to show your love  <br> 
+Enter the names. <br>
+Select the link. </p><br>
+<p id="demo1" class="w3-xlarge w3-read w3-center"	>Where am I :-(?</p><br>
+<p>
+  <button type="w3-button" id="testbut" name="markLo" onclick="getLocation();" class="w3-xxlarge w3-teal" autofocus >Mark where I am</button><br>
+  <p id="plat" ></p> <p id="plon" ></p>
+  <form action="bridgeList.php" method="get" type="button" style="cursor:pointer" name="histo"  class="w3-white"  id="form1a" >
+
+  <button type="input w3-button" class="w3-xlarge w3-btn"> Bridges and padlocks</button><br>
+  </form>
+
+</p>
+
+<img src="padlock.jpg" width="150" height="100">
+
+<h2> Buy a padlock key</h2>
+<form action="your-server-side-code" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_kcM9zRjme8jVEQbGlLfIaqlW"
+    data-amount="100"
+    data-name="xpens"
+    data-description="Example charge"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-currency="gbp"
+    data-zip-code="true">
+  </script>
+</form>
+
+<h2 > Buy a Private padlock key</h2>
+<form action="your-server-side-code" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_kcM9zRjme8jVEQbGlLfIaqlW"
+    data-amount="500"
+    data-name="xpens"
+    data-description="Example charge"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-currency="gbp"
+    data-zip-code="true">
+  </script>
+</form>
+</p>
+<form action="ChecklockCode.php" method="post" onSubmit="window.location.reload()" id="form1">
+  <h2 class="w3-xxlarge"> Add names to the padlock</h2>
+<h2 class="w3-xxlarge"> Enter lock code:<input type="text" id="lock1" Size="40" maxlength="40" autofocus  placeholder="Number received from stripe" required> 
+</h2>
+<br><input type="submit" value="Enter" class="w3-xxlarge w3-btn w3-teal" id="sub1" >
+<br>
+</form>
+<br>
+<form action="grafitti.php" method="post" onSubmit="window.location.reload()" id="form2">
+<h2 class="w3-xxlarge"> Enter your name:<input type="text" id="name1" Size="20" maxlength="20">   <br><br> 
+  select a link
+  <select>
+        <option value="plus"> loves </option>
+        <option value="love"> + </option>
+        <option value="iswith"> is with </option>
+        <option value="likes"> likes </option>
+        <option value="want"> want </option>
+        <option value="met"> met </option>
+      </select><br> <br> 
+
+<h2 class="w3-xxlarge"> Enter your loves name:<input type="text" id="name2" Size="20" maxlength="20">   <br> <br>
+<input type="text" id="graflong" name="graflo" hidden> 
+<input type="text" id="graflat" name="grafla" hidden>
+      <div class="g-recaptcha" data-sitekey="6LcMQ0gUAAAAAE68i8N9VRGeS3kz3FgPtfYT0UAX"></div>
+<p>
+<br><input type="submit" value="Insert" class="w3-xxlarge w3-btn w3-teal" id="submit1" disabled>
+<label>  ......     </label>
+<input type="reset" class="w3-xxlarge w3-btn w3-teal"> <br><br>
+</form>
+
+<div id="mapholder"></div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-84659766-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<form action="grafittiGet.html" method="get" type="button" style="cursor:pointer" class="w3-xxlarge " hidden>
+<button type="buttonexit" class="w3-xxlarge w3-teal w3-btn" hidden> Read Graffiti</button>
+</form>
+
+<br>
+<a class="w3-xxlarge w3-btn w3-teal" href="padlockGet.html">Back</a>
+</button>
+</center>
+</div>
+</body>
+</html>
+

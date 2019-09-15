@@ -1,0 +1,67 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<script> 
+var x = document.getElementById("demo");
+
+</script>
+<head>
+<title> The Virtual Padlock app.
+    <link rel="shortcut icon" sizes="128x128" href="./icns/money.ico">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" type="text/css" href="adminstyle.css">
+<style>
+body {
+    background-color: white; 
+    border: 2px solid green;
+}
+</style>
+</head>
+<body class="mybody"; onload="init();">
+<center>
+<div  class="main-wrapper">
+<h1 class="w3-jumbo w3-teal"> The virtual padlock. </h1>
+<h2 class="w3-xxxlarge"> Admin </h2>
+
+	<header>
+	<nav >
+		<div class="grid-container" >
+			<div class="item2">
+
+			<form method="POST" action="adminlogin.php" class="login-form" id="form1">  
+			<fieldset class="w3-xxxlarge">
+				<legend class="w3-xlarge">Login to continue</legend>
+			  				<label>*Username				
+			  <input type="email" name="email" placeholder = "Email" id="username" class="w3-blue">
+			  <span class="error"> <?php echo $emailErr;?></span></label>
+			  			  <label for="password">*Password
+			  <input type="password" name="passw" value="<?php echo $psw;?>" id="password"
+			  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required  class="w3-blue">
+			  <span class="error"> <?php echo $pswErr;?></span></label>
+			  <br><br>
+			  <input type="submit" name="submitin" value="Login" class="btn w3-jumbo" id="form2">  
+			  </fieldset>
+			 </form>
+			</div>
+	</div>
+	</nav>
+	</header>
+
+<br>
+</center>
+
+</body>
+
+<footer>
+	<p id="demo"></p>
+</footer>
+</html>

@@ -1,0 +1,313 @@
+<?php
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" name= "Add Padlocks" content="my library 1.0" >
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="Keywords" content="padlock, virtual, lock, lees, reading, book, books">
+<meta name="Description" content="Add a virtual Padlock" >
+<meta name="copyright" content="Copyright, 2018 NSauer">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Add a virtual padlock</title>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="shortcut icon" sizes="128x128" href="./icns/money.ico">
+
+
+
+<style>
+
+body {
+    background-color: white;        
+}
+form {border: 3px solid white;
+}
+@media screen and (max-width: 300px) {
+  span.psw{
+    display: block;
+    float: none;
+  }
+  .cancelbtn{
+    width: 100%;
+  }
+};
+.wrapper{
+  grid-template-colums: 1fr 2fr 1fr
+  display:grid;
+  justify-items:centre;
+  grid-row-gap:1em;
+}
+
+.wrapper > div{
+  padding:1em;
+  justify-items:centre;
+
+}
+
+.wrapper1{
+  grid-template-colums: 1fr 2fr 1fr
+  display:grid;
+  justify-items:centre;
+  grid-row-gap:1em;
+}
+
+.wrapper1 > div{
+  padding:1em;
+  justify-items:centre;
+
+}
+.wrapper2{
+  grid-template-colums: 1fr 2fr 1fr
+  display:grid;
+  justify-items:centre;
+  grid-row-gap:1em;
+}
+
+.wrapper2 > div{
+  padding:1em;
+  justify-items:centre;
+
+}
+</style>
+<style>
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)} 
+    to {-webkit-transform: scale(1)}
+}
+    
+@keyframes animatezoom {
+    from {transform: scale(0)} 
+    to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+}
+</style>
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3mobile.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css"> 
+<script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body   background-color: #dcffcc;>
+<center>
+<h1 class="w3-jumbo w3-teal "> The Xpens collection</h1>
+<h2 class="w3-xxxlarge"> Personal padlock </h2>
+</center>
+
+<script>
+function readBridge(id1)
+{
+<?php
+$id2  = (float)test_input($_POST["id"])
+$_SESSION["bridgeid2"] = $id2;
+print_r($_SESSION);
+?>
+return $id2;
+}
+ </script> 
+
+<body>
+<?php 
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}  
+?>
+<script>
+  var brid  = 0;
+</script>
+
+<div  class="main-wrapper  w3-center">
+<h1 class="w3-xxlarge " ><center>Add your Padlock</center></h1>
+<div class="wrapper1"> 
+
+  <header>
+  <nav >
+    <div class="grid-container" >
+      <div class="item2">   
+      <a class="btn" href="https://xpens.co.uk/Default.html">Main menu   </a>
+      <a class="btn" href="padlockPutDB.html" class="w3-large"> Back</a>  
+  
+      
+      </div>
+  </nav>
+  </header>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+document.getElementById("bidid").innerHTML =readBridge(id);
+</script>
+
+
+</div>  
+<div class="wrapper">
+  <centre>
+<form action="pladd.php" method="POST" onSubmit="window.location.reload()" id="form1" name="gymmy" >
+<br><center><input type="text" name="bid" id="bidid"  size="50rem" placeholder ="bridge ID" value= $id2 >
+<br><center><input type="text" name="Name1" id="Name1id" placeholder="Your Name" size="50rem">
+
+  <select name="link" size="1rem">
+        <option value="plus"> loves </option>
+        <option value="love"> + </option>
+        <option value="iswith"> is with </option>
+        <option value="likes"> likes </option>
+        <option value="want"> want </option>
+        <option value="met"> met </option>
+  </select>
+<br> 
+<br>
+<br><br><input type="text" name="Name2" id="name2id" width="2" placeholder="Another Name" size="50rem" > 
+<br><br>Padlock key <input type="text" name="plkey" id="plkeyid" placeholder="The key you bought" size="50rem">
+<div class="g-recaptcha" data-sitekey="6LcMQ0gUAAAAAE68i8N9VRGeS3kz3FgPtfYT0UAX"></div>
+<br><br><input type="submit" value="Add" class="w3-xxlarge w3-btn w3-centre" id="saveMyData"   >
+<br><br><input type="reset"  class="w3-xlarge w3-btn" ></input></td>
+</center>
+</form>
+</center>
+</div>
+</form>
+</p>
+<div>
+<center>
+<a class="w3-btn w3-xlarge close" href="bridgelist.php" > Select Bridge</a><br><br>
+<a class="w3-btn w3-xlarge" href="padlockPutDB.html" > Exit</a>
+</center>
+</div>
+<script>
+  function init(){
+    
+  }
+</script>
+</body>
+<nav>
+<div class="footer">
+	<u1>
+</li>
+	</center>
+<center><li>This app save to the cloud.</li>	
+	</u1>
+	</div>
+  </div>
+  <br>
+
+	<p id="demo"></p>
+</nav>
+</head>
